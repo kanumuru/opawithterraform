@@ -32,4 +32,12 @@ jobs:
         
       - name: 'Terraform plan binary to json'
         run: terraform show -json output > plan.json
-  
+        
+      - uses: pCYSl5EDgo/cat@master
+        id: hello
+        with:
+          path: plan.json
+          
+      - run: echo $inputforopa
+        env:
+         inputforopa: ${{ steps.hello.outputs.plan }}
