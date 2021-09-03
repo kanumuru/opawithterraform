@@ -42,7 +42,7 @@ jobs:
         with:
           path: "plan.json"
           namespace: "data.terraform"
-          policy: "policy"
+          policy: "policy.rego"
 
       - name: 'Install OPA'
         run: |
