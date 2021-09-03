@@ -41,6 +41,8 @@ jobs:
         uses: ibiqlik/conftest-action-docker@master
         with:
           path: "plan.json"
+          namespace: "data.terraform"
+          policy: "policy"
 
       - name: 'Install OPA'
         run: |
