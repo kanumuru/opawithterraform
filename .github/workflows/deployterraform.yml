@@ -37,6 +37,10 @@ jobs:
         run: pwd
       - name: 'list files'
         run: ls 
+      - name: 'opa Test'
+        uses: ibiqlik/conftest-action-docker@master
+        with:
+          path: "plan.json"
 
       - name: 'Install OPA'
         run: |
