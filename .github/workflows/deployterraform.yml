@@ -46,7 +46,7 @@ jobs:
 
       - name: 'Install OPA'
         run: |
-         curl -L -o opa https://github.com/open-policy-agent/opa/releases/download/v0.32.0/opa_linux_amd64
+         curl -L -o opa https://github.com/open-policy-agent/opa/releases/download/v0.31.0/opa_linux_amd64
          chmod 755 ./opa
          ls
          ./opa eval --format pretty --data policy.rego --input plan.json 'data.terraform' 
