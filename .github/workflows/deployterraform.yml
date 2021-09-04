@@ -33,6 +33,7 @@ jobs:
       - name: 'Terraform plan binary to json'
         run: |
          terraform show -json output > plan.json
+         cat plan.json
       - name: 'current path'
         run: pwd
       - name: 'list files'
