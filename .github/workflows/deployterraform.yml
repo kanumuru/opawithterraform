@@ -43,7 +43,7 @@ jobs:
          chmod 755 ./opa
          ls
          ./opa eval --format pretty --data *.rego  'data.terraform' 
-         ./opa eval --format pretty --data *.rego  --input ${{ steps.opajson.outputs.TAG_NAME }} 'data.terraform' 
+         ./opa eval --format pretty --data *.rego  --input $(pwd)/plan.json 'data.terraform' 
          ./opa eval --format pretty --data *.rego --input *.json 'data.terraform.deny' > test.txt
          cat test.txt
          
