@@ -53,5 +53,5 @@ jobs:
          ./opa eval --format pretty --data policy.rego --input './plan.json' 'data.terraform.deny' > test.txt
          cat test.txt
       - name: 'output  dude'
-        run: ./opa eval --format pretty --data policy.rego --input plan.json 'data.terraform' 
+        run: ./opa eval --input plan.json --data policy.rego  'data.terraform' 
 
