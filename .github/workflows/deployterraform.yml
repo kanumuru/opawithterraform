@@ -51,7 +51,7 @@ jobs:
          chmod 755 ./opa
          ls
          ./opa eval --format pretty --data policy.rego --input plan.json 'data.terraform' 
-         ./opa eval --format pretty --data policy.rego --input plan.json 'data.terraform.deny' > test.txt
+         ./opa eval --format pretty --data policy.rego --input ./plan.json 'data.terraform.deny' > test.txt
          cat test.txt
   
 
