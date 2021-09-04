@@ -33,12 +33,12 @@ jobs:
           
       - name: 'Terraform plan binary to json'
         run: |
-         terraform show -json output > plan.json
-      - name: "Upload Report"
-        uses: actions/upload-artifact@v1
-        with:
-          name: uploafing
-          path: plan.json
+         terraform show -json output > ./plan.json
+#       - name: "Upload Report"
+#         uses: actions/upload-artifact@v1
+#         with:
+#           name: uploafing
+#           path: plan.json
 
       - name: 'Install OPA'
         run: |
@@ -51,5 +51,5 @@ jobs:
          cat test.txt
          
       - name: 'output  of opa'
-        run: ./opa eval --format pretty --data *.rego --input plan.json data.terraform
+        run: ./opa eval --format pretty --data *.rego --input ./plan.json data.terraform
 
