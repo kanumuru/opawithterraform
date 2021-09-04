@@ -43,10 +43,10 @@ jobs:
          chmod 755 ./opa
          ls
          ./opa eval --format pretty --data *.rego  'data.terraform' 
-         ./opa eval --format pretty --data *.rego  --input *.json  'data.terraform' 
-         ./opa eval --format pretty --data *.rego --input *.json 'data.terraform.deny' > test.txt
+         ./opa eval --format pretty --data *.rego  --input test.json  'data.terraform' 
+         ./opa eval --format pretty --data *.rego --input test.json 'data.terraform.deny' > test.txt
          cat test.txt
          
       - name: 'output  of opa'
-        run: ./opa eval --format pretty --data *.rego --input *.json data.terraform
+        run: ./opa eval --format pretty --data *.rego --input plan.json data.terraform
 
