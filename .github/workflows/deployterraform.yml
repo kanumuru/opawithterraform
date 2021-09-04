@@ -42,9 +42,9 @@ jobs:
          curl -L -o opa https://github.com/open-policy-agent/opa/releases/download/v0.32.0/opa_linux_amd64
          chmod 755 ./opa
          ls
-         cat ${{ steps.version.outputs.TAG_NAME }} 
+         cat ${{ steps.opajson.outputs.TAG_NAME }} 
          ./opa eval --format pretty --data *.rego  'data.terraform' 
-         ./opa eval --format pretty --data *.rego  --input ${{ steps.version.outputs.TAG_NAME }} 'data.terraform' 
+         ./opa eval --format pretty --data *.rego  --input ${{ steps.opajson.outputs.TAG_NAME }} 'data.terraform' 
          ./opa eval --format pretty --data *.rego --input *.json 'data.terraform.deny' > test.txt
          cat test.txt
          
