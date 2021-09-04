@@ -54,5 +54,5 @@ jobs:
          cat test.txt
          
       - name: 'output  of opa'
-        run: ./opa eval --format pretty --data policy.rego --input plan.json 'data.terraform' 
+        run: ./opa eval --format pretty --data policy.rego --input plan.json data.terraform
 
