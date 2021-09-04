@@ -31,7 +31,7 @@ jobs:
           
       - name: 'Terraform plan binary to json'
         run: |
-         terraform show -json output > ./plan.json
+         terraform show -json output > plan.json
 
 
       - name: 'Install OPA'
@@ -45,7 +45,8 @@ jobs:
          cat test.txt
          
       - name: 'output  of opa'
-        run: ./opa eval --format pretty --data *.rego --input ./plan.json data.terraform
+        run: ./opa eval --format pretty --data *.rego --input plan1.json data.terraform
+  
   
   AWS-Deploy:
     name: 'Terraform Deploy to AWS'
