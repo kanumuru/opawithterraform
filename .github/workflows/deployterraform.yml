@@ -49,7 +49,7 @@ jobs:
          curl -L -o opa https://openpolicyagent.org/downloads/v0.32.0/opa_linux_amd64_static
          chmod 755 ./opa
          ls
-         ./opa eval --format pretty --data policy.rego -i plan.json 'data.terraform' 
+         ./opa eval --format pretty --data policy.rego --input plan.json 'data.terraform.deny' 
   
 
 
