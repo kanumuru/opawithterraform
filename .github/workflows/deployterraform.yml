@@ -29,13 +29,16 @@ jobs:
 
       - name: 'Terraform Plan'
         run: terraform plan -out=output
-        
+          
+          
       - name: 'Terraform plan binary to json'
         run: |
          terraform show -json output > plan.json
-         echo plan.json
-         echo "::set-output name=TAG_NAME::$(cat plan.json)"
-        id: opajson 
+      - name: "Upload Report"
+        uses: actions/upload-artifact@v1
+        with:
+          name: plan.json uploafing
+          path: plan.json
 
       - name: 'Install OPA'
         run: |
