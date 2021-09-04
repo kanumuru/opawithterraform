@@ -2,7 +2,7 @@
 
 package terraform
 
-import input as tfplan
+import input.tfplan as tfplan
 
 
 required_tags = ["owner", "department"]
