@@ -18,4 +18,6 @@ jobs:
     - name: OPA tests
       uses: ibiqlik/conftest-action-docker@master
       with:
-        path: "public_s3.json"
+        namespace: "data.terraform"
+        policy: "*.rego"
+        path: "*.json"
