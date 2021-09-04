@@ -38,12 +38,12 @@ jobs:
         run: pwd
       - name: 'list files'
         run: ls 
-#       - name: 'opa Test'
-#         uses: ibiqlik/conftest-action-docker@master
-#         with:
-#           path: "plan.json"
-#           namespace: "terraform"
-#           policy: "policy.rego"
+      - name: 'opa Test'
+        uses: ibiqlik/conftest-action-docker@master
+        with:
+          path: "plan.json"
+          namespace: "data.terraform"
+          policy: "policy.rego"
 
       - name: 'Install OPA'
         run: |
