@@ -45,7 +45,9 @@ jobs:
          cat test.txt
          
       - name: 'output  of opa'
-        run: ./opa eval --format pretty --data *.rego --input plan.json data.terraform
+        run: |
+          cat plan.json
+          ./opa eval --format pretty --data *.rego --input plan.json data.terraform
   
   
   AWS-Deploy:
