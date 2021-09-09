@@ -57,23 +57,23 @@ jobs:
 #           path: ./plan.json
   
   
-  AWS-Deploy:
-    name: 'Terraform Deploy to AWS'
-    runs-on: ubuntu-latest
-    env:
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      AWS_REGION: 'us-west-2'
-    steps:
-      - name: 'Checkout'
-        uses: actions/checkout@v2
+#   AWS-Deploy:
+#     name: 'Terraform Deploy to AWS'
+#     runs-on: ubuntu-latest
+#     env:
+#       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#       AWS_REGION: 'us-west-2'
+#     steps:
+#       - name: 'Checkout'
+#         uses: actions/checkout@v2
 
-      - name: 'Terraform Setup'
-        uses: hashicorp/setup-terraform@v1
+#       - name: 'Terraform Setup'
+#         uses: hashicorp/setup-terraform@v1
         
-      - name: 'Terraform Init'
-        run: |
-         terraform init
-         terraform apply -auto-approve
+#       - name: 'Terraform Init'
+#         run: |
+#          terraform init
+#          terraform apply -auto-approve
       
 
