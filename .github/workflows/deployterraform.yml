@@ -51,7 +51,7 @@ jobs:
       - name: conditional command
         run: |
           echo Rajehs
-          if: |
-              ${{ wc -c test.txt >= 4
-                }}
+          vartest = wc -c test.txt
+          echo $vartest
+
 
