@@ -47,9 +47,10 @@ jobs:
           ./opa eval --format pretty --data *.rego --input valid.json data.terraform
           ./opa eval --format pretty --data *.rego --input valid.json data.terraform.deny > test.txt
           cat test.txt
-          $CONDITION = wc -c test.txt
+          wc -c test.txt
       - name: conditional command
         run: |
+          CONDITION = wc -c test.txt
           if $CONDITION > 3; then
               echo "Rajesh"
           else
