@@ -49,12 +49,12 @@ jobs:
           cat plan.json
           pwd
           ls
-          ./opa eval --format pretty --data *.rego --input ./plan.json data.terraform
-#       - name: "Upload Report"
-#         uses: actions/upload-artifact@v1
-#         with:
-#           name: plan
-#           path: ./plan.json
+          ./opa eval --format pretty --data *.rego --input plan.json data.terraform
+      - name: "Upload Report"
+        uses: actions/upload-artifact@v1
+        with:
+          name: plan
+          path: plan.json
   
   
   
