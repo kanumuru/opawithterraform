@@ -47,7 +47,8 @@ jobs:
           cat plan.json
           pwd
           ls
-          ./opa eval --format pretty --data *.rego --input plan.json data.terraform
+          cat plan.json | head -2 | tail -1 > valid.json
+          ./opa eval --format pretty --data *.rego --input valid.json data.terraform
       - name: "Upload Report"
         uses: actions/upload-artifact@v1
         with:
