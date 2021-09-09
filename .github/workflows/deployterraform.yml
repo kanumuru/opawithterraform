@@ -50,9 +50,6 @@ jobs:
           wc -c test.txt
       - name: conditional command
         run: |
-          CONDITION = wc -c test.txt
-          if $CONDITION > 3; then
-              echo "Rajesh"
-          else
-              echo "Never going to happend"
-          fi
+          echo Rajehs
+          if: ( 'a' == 'a' )
+
