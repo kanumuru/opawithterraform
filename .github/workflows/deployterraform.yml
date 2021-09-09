@@ -48,6 +48,7 @@ jobs:
         run: |
           cat plan.json
           pwd
+          ls
           ./opa eval --format pretty --data *.rego --input plan.json data.terraform
   
   
