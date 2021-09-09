@@ -51,5 +51,7 @@ jobs:
       - name: conditional command
         run: |
           echo Rajehs
-          if: ( 'a' == 'a' )
+          if: |
+              ${{ wc -c test.txt >= 4
+                }}
 
