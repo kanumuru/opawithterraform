@@ -25,23 +25,13 @@ jobs:
         run: terraform init
       
 
-#       - name: 'Terraform Plan'
-#         run: terraform plan -out=output
-        
-     
-      - uses: hashicorp/setup-terraform@master
-        with:
-          terraform_wrapper: false
-      - run: terraform plan -out terraform.plan 
-      - run: terraform show -json terraform.plan | tee plan.json
-      
-      
-      
-#       - name: 'Terraform plan binary to json'
-#         run: |
-#          terraform show -json output > plan.json
-
-
+      - name: 'Terraform Plan'
+        run: terraform plan -out=output
+          
+          
+      - name: 'Terraform plan binary to json'
+        run: |
+         terraform show -json output > plan.json
       - name: 'Install OPA'
         run: |
          curl -L -o opa https://github.com/open-policy-agent/opa/releases/download/v0.32.0/opa_linux_amd64
@@ -83,6 +73,4 @@ jobs:
 #       - name: 'Terraform Init'
 #         run: |
 #          terraform init
-#          terraform apply -auto-approve
-      
-
+#          terraform apply
