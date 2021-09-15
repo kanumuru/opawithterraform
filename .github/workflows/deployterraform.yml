@@ -48,7 +48,9 @@ jobs:
       - name: conditional command
         run: |
           output=$(awk 'BEGIN{c=0} //{c++} END{print c}' RS="[[:space:]]" test.txt)
-          echo $output 
-
-
+          echo $output
+          if {{ $output <= 2 }}
+            echo $output
+          if {{ $output > 2 }}
+            echo $output
 
