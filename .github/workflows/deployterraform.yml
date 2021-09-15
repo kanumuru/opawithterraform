@@ -46,12 +46,11 @@ jobs:
           cat plan.json | head -2 | tail -1 > valid.json
           ./opa eval --format pretty --data *.rego --input valid.json data.terraform
           ./opa eval --format pretty --data *.rego --input valid.json data.terraform.deny > test.txt
-          cat test.txt
-          wc -c test.txt
+
       - name: conditional command
         run: |
-          echo Rajehs
-          vartest = wc -c test.txt
-          echo $vartest
+          output=$(awk 'BEGIN{c=0} //{c++} END{print c}' RS="[[:space:]]" test.txt)
+          echo $output 
+
 
 
