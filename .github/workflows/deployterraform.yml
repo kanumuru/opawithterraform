@@ -49,8 +49,7 @@ jobs:
         run: |
           output=$(awk 'BEGIN{c=0} //{c++} END{print c}' RS="[[:space:]]" test.txt)
           echo $output
-          if: {{ $output <= 2 }}
-            echo $output
-          if: {{ $output > 2 }}
-            echo $output
+          expected=1
+          echo $expected
+ 
 
