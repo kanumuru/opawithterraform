@@ -44,12 +44,14 @@ jobs:
           ./opa eval --format pretty --data *.rego --input valid.json data.terraform.deny > test.txt
           cat test.txt
       - name: Terraform Deploy the stack
+        id: notify
         run: |
           output=$(awk 'BEGIN{c=0} //{c++} END{print c}' RS="[[:space:]]" test.txt)
           echo $output
           expected=1
           echo $expected
           if [ $expected == $output ]; then
+            result="terraform stakc deployed succesfully"
             terraform apply -auto-approve
           else
             result="OPA policy not satsfied, Please ensure tags are created according to organization policy"
@@ -61,7 +63,7 @@ jobs:
         uses: rtCamp/action-slack-notify@v2
         
         env:
-              SLACK_MESSAGE: Hello! Event "${{ github.event_name }}" in "${{ github.repository }}" and status is "${{result}}"🤓
+              SLACK_MESSAGE: Hello! Event "${{ github.event_name }}" in "${{ github.repository }}" and status is "${{steps.notify.outputs.result}}"🤓
               SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
 
  
