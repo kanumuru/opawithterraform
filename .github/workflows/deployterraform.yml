@@ -57,9 +57,11 @@ jobs:
 
           fi  
       - name: Slack notification
+  
         uses: rtCamp/action-slack-notify@v2
+        
         env:
-              SLACK_MESSAGE: $result
+              SLACK_MESSAGE: Hello! Event "${{ github.event_name }}" in "${{ github.repository }}" 🤓
               SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
 
  
