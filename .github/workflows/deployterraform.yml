@@ -55,7 +55,7 @@ jobs:
             terraform apply -auto-approve
           else
             result="OPA policy not satsfied, Please ensure tags are created according to organization policy"
-            echo $result
+            echo "::set-output name=$result"
 
           fi  
       - name: Slack notification
