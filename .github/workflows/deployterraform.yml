@@ -1,4 +1,4 @@
-name: 'Terraform Plan'
+name: 'OPA Terraform Deploy'
 
 on: [push, pull_request]
 defaults:
@@ -63,7 +63,7 @@ jobs:
         uses: rtCamp/action-slack-notify@v2
         
         env:
-              SLACK_MESSAGE: Hello! Event "${{ github.event_name }}" in "${{ github.repository }}" and status is "${{steps.notify.outputs.result}}"🤓
+              SLACK_MESSAGE: Hello! Event "${{ github.event_name }}" in "${{ github.repository }}" and status is "${{join(steps.notify.outputs.*, '\n')}}"🤓
               SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
 
  
