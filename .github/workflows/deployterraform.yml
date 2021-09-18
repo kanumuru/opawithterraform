@@ -51,7 +51,10 @@ jobs:
           echo $output
           expected=1
           echo $expected
-          if: always()
-          echo Rajesh in if
+          if [ -z "$expected" ]; then
+            echo "Rajesh in if"
+          else
+            echo "Rajesh in else"
+      
  
 
