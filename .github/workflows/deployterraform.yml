@@ -61,7 +61,7 @@ jobs:
         uses: rtCamp/action-slack-notify@v2
         
         env:
-              SLACK_MESSAGE: Hello! Event "${{ github.event_name }}" in "${{ github.repository }}" 🤓
+              SLACK_MESSAGE: Hello! Event "${{ github.event_name }}" in "${{ github.repository }}" and status is "${{result}}"🤓
               SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
 
  
