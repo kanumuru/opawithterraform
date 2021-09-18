@@ -52,10 +52,11 @@ jobs:
           echo $expected
           if [ $expected == $output ]; then
             result="terraform stakc deployed succesfully"
+            echo "::set-output name=result::OPA policy satsfied, terraform stack deployed succesfully"
+
             terraform apply -auto-approve
           else
-            result="OPA policy not satsfied, Please ensure tags are created according to organization policy"
-            echo "::set-output name=result::working"
+            echo "::set-output name=result::OPA policy not satsfied, Please ensure tags are created according to organization policy"
 
           fi  
       - name: Slack notification
@@ -64,7 +65,6 @@ jobs:
         
         env:
               SLACK_MESSAGE: Hello! Event "${{ github.event_name }}" in "${{ github.repository }}" and status is "${{join(steps.notify.outputs.result, '\n')}}"🤓
-#               SLACK_MESSAGE: ${{join(steps.notify.outputs.*, '\n')}}
               SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
 
  
