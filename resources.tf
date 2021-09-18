@@ -53,15 +53,11 @@ resource "random_string" "random_name" {
   length  = 10
   special = false
   upper   = false
-    tags = {
-    department = "Learning"
-    owner      = "ASE"
-  }
 }
 
 
 resource "aws_s3_bucket" "opa_bucket" {
-  bucket        = format("opa-encryption-%s", random_string.random_name.result)
+  bucket        = "opa-encryption-testing-now-in-cicd"
   acl           = "private"
   force_destroy = true
     tags = {
