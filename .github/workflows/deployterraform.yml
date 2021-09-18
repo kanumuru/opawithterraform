@@ -53,12 +53,17 @@ jobs:
             terraform apply -auto-approve
           else
             echo "OPA policy not satsfied, Please ensure tags are created according to organization policy"
+                  - name: Slack notification
+                    uses: rtCamp/action-slack-notify@v2
+                    env:
+                          SLACK_MESSAGE: 'OPA policy not satsfied, Please ensure tags are created according to organization policy'
+                          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           fi  
-      - name: Slack notification
-        uses: rtCamp/action-slack-notify@v2
-        env:
-              SLACK_MESSAGE: 'OPA policy not satsfied, Please ensure tags are created according to organization policy'
-              SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+#       - name: Slack notification
+#         uses: rtCamp/action-slack-notify@v2
+#         env:
+#               SLACK_MESSAGE: 'OPA policy not satsfied, Please ensure tags are created according to organization policy'
+#               SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
 
  
 
