@@ -52,7 +52,7 @@ jobs:
           if [ $expected == $output ]; then
             terraform apply -auto-approve
           else
-            uses: rtCamp/action-slack-notify@v2
+            - uses: rtCamp/action-slack-notify@v2
             env:
               SLACK_MESSAGE: 'OPA policy not satsfied, Please ensure tags are created according to organization policy'
               SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
