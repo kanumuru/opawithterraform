@@ -51,5 +51,7 @@ jobs:
           echo $output
           expected=1
           echo $expected
+          if: always()
+          echo Rajesh in if
  
 
