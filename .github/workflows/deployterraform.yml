@@ -40,9 +40,7 @@ jobs:
          
       - name: 'output  of opa'
         run: |
-          ./opa eval --format pretty --data *.rego --input plan.json data.terraform.deny > now.txt
           cat plan.json | head -2 | tail -1 > valid.json
-          ./opa eval --format pretty --data *.rego --input valid.json data.terraform
           ./opa eval --format pretty --data *.rego --input valid.json data.terraform.deny > test.txt
           cat test.txt
       - name: Terraform Deploy the stack
