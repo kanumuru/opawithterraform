@@ -45,16 +45,16 @@ jobs:
           ./opa eval --format pretty --data *.rego --input valid.json data.terraform
           ./opa eval --format pretty --data *.rego --input valid.json data.terraform.deny > test.txt
           cat test.txt
-      - name: conditional command
+      - name: Terraform Deploy the stack
         run: |
           output=$(awk 'BEGIN{c=0} //{c++} END{print c}' RS="[[:space:]]" test.txt)
           echo $output
           expected=1
           echo $expected
           if [ $expected == $output ]; then
-            echo "Rajesh in if"
+            terraform apply -auto-approve
           else
-            echo "Rajesh in else"
+            echo "OPA policy not satsfied, Please ensure tags are created according to organization policy"
           fi  
       
  
