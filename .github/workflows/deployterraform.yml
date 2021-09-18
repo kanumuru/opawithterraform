@@ -51,10 +51,11 @@ jobs:
           echo $output
           expected=1
           echo $expected
-          if [ -z "$expected" ]; then
+          if [ $expected == $output ]; then
             echo "Rajesh in if"
           else
             echo "Rajesh in else"
+          fi  
       
  
 
